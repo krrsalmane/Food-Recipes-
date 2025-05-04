@@ -1,1 +1,6 @@
-<p>rating-system works!</p>
+<div class="flex items-center mt-4">
+    <div class="flex text-pink-400">
+      <i *ngFor="let i of [1,2,3,4,5]" [ngClass]="{'fas fa-star': i <= (userRating || 0), 'far fa-star': i > (userRating || 0)}" (click)="setRating(i)" class="cursor-pointer"></i>
+    </div>
+    <span class="ml-2 text-gray-600 font-medium">(4.5)</span>
+  </div>

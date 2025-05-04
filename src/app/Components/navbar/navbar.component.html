@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+
+<nav class="bg-gradient-to-r from-indigo-600 to-purple-400 text-white shadow-xl p-4 sticky top-0 z-20">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-bold tracking-tight">Recipe Haven</h1>
+      <div class="flex items-center space-x-6">
+        <a [routerLink]="['/']" class="hover:text-purple-200 transition-colors">Home</a>
+        <div class="relative group">
+          <button class="hover:text-purple-200 transition-colors focus:outline-none flex items-center">
+            Categories <i class="fas fa-chevron-down ml-2"></i>
+          </button>
+          <div class="absolute hidden group-hover:block bg-purple-100 text-gray-800 shadow-2xl rounded-lg mt-2 w-52 transform transition-all duration-300">
+            <a [routerLink]="['/recipes']" [queryParams]="{category: 'Vegetarian'}" class="block px-4 py-3 hover:bg-purple-200 hover:text-indigo-600 font-medium">Vegetarian</a>
+            <a [routerLink]="['/recipes']" [queryParams]="{category: 'Dessert'}" class="block px-4 py-3 hover:bg-purple-200 hover:text-indigo-600 font-medium">Dessert</a>
+            <a [routerLink]="['/recipes']" [queryParams]="{category: 'Vegan'}" class="block px-4 py-3 hover:bg-purple-200 hover:text-indigo-600 font-medium">Vegan</a>
+          </div>
+        </div>
+        <div class="relative">
+          <input [(ngModel)]="searchQuery" (keyup.enter)="searchRecipes()" type="text" placeholder="Search recipes..." class="bg-purple-100 text-gray-800 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-purple-300 w-64 transition-all duration-300">
+          <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+        </div>
+        <a href="#" class="bg-pink-400 text-indigo-800 px-4 py-2 rounded-full font-semibold hover:bg-pink-300 transition-colors">Login</a>
+      </div>
+    </div>
+  </nav>

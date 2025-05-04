@@ -1,28 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipeService } from '../../Services/recipe.service';
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-
-
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { RecipeService } from '../../Services/recipe.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HttpClientModule,CommonModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [RecipeService]
 })
 export class HomeComponent implements OnInit {
-  recipes: any[]=[];
+  trendingRecipes: any[] = [];
 
-  constructor(private RecipeService: RecipeService) { }
-  ngOnInit(): void {
+  constructor(private recipeService: RecipeService) {}
 
-    this.RecipeService.getAllRecipes().subscribe((data: any[]) => {
-      this.recipes= data;
-
-      console.log(this.recipes);
+  ngOnInit() {
+    this.recipeService.getTrendingRecipes().subscribe(recipes => {
+      this.trendingRecipes = recipes;
     });
-}
-
+  }
 }

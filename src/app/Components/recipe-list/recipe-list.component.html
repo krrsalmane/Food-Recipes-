@@ -1,1 +1,30 @@
-<p>recipe-list works!</p>
+<section class="container mx-auto py-10">
+    <div class="flex flex-wrap gap-4 justify-center">
+      <button (click)="filterRecipes('All')" [ngClass]="{'filter-btn active': activeFilter === 'All'}" class="filter-btn bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-500 transition-all duration-300">All</button>
+      <button (click)="filterRecipes('Vegetarian')" [ngClass]="{'filter-btn active': activeFilter === 'Vegetarian'}" class="filter-btn bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-500 transition-all duration-300">Vegetarian</button>
+      <button (click)="filterRecipes('Dessert')" [ngClass]="{'filter-btn active': activeFilter === 'Dessert'}" class="filter-btn bg-pink-600 text-white px-6 py-2 rounded-full hover:bg-pink-500 transition-all duration-300">Dessert</button>
+      <button (click)="filterRecipes('Vegan')" [ngClass]="{'filter-btn active': activeFilter === 'Vegan'}" class="filter-btn bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-500 transition-all duration-300">Vegan</button>
+    </div>
+  </section>
+  <section class="container mx-auto py-12">
+    <h3 class="text-4xl font-bold text-indigo-800 mb-10 text-center animate-fadeIn">Explore Our Recipes</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let recipe of recipes" class="bg-purple-100 rounded-2xl shadow-xl overflow-hidden hover-effect animate-fadeIn">
+        <div class="relative">
+          <img [src]="recipe.strMealThumb" alt="{{recipe.strMeal}}" class="w-full h-64 object-cover">
+          <span class="absolute top-4 left-4 bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-semibold">{{recipe.strCategory}}</span>
+        </div>
+        <div class="p-6">
+          <h4 class="text-2xl font-bold text-indigo-800">{{recipe.strMeal}}</h4>
+          <p class="text-gray-600 mt-3">A delicious {{recipe.strCategory.toLowerCase()}} dish.</p>
+          <div class="flex items-center mt-4">
+            <div class="flex text-pink-400">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+            </div>
+            <span class="ml-2 text-gray-600 font-medium">(4.5)</span>
+          </div>
+          <a [routerLink]="['/recipe', recipe.idMeal]" class="mt-4 inline-block text-indigo-600 font-semibold hover:text-indigo-500 transition-colors">View Recipe</a>
+        </div>
+      </div>
+    </div>
+  </section>

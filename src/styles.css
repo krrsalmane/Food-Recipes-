@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Template custom styles */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+.hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-effect:hover {
+  transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.hero-bg {
+  background-size: cover;
+  background-position: center;
+  animation: bgSlide 20s infinite;
+}
+@keyframes bgSlide {
+  0%, 33% { background-image: url('https://images.unsplash.com/photo-1504672281656-e3e7b0afeb55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); }
+  34%, 66% { background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); }
+  67%, 100% { background-image: url('https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); }
+}
+.filter-btn.active {
+  transform: scale(1.1);
+  background-color: #d946ef;
+}
