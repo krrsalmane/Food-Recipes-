@@ -1,7 +1,7 @@
 
 <nav class="bg-gradient-to-r from-indigo-600 to-purple-400 text-white shadow-xl p-4 sticky top-0 z-20">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-bold tracking-tight">Recipe Haven</h1>
+      <h1 class="text-3xl font-bold tracking-tight underline">Recipe Haven</h1>
       <div class="flex items-center space-x-6">
         <a [routerLink]="['/']" class="hover:text-purple-200 transition-colors">Home</a>
         <div class="relative group">
@@ -9,9 +9,9 @@
             Categories <i class="fas fa-chevron-down ml-2"></i>
           </button>
           <div class="absolute hidden group-hover:block bg-purple-100 text-gray-800 shadow-2xl rounded-lg mt-2 w-52 transform transition-all duration-300">
-            <a [routerLink]="['/recipes']" [queryParams]="{category: 'Vegetarian'}" class="block px-4 py-3 hover:bg-purple-200 hover:text-indigo-600 font-medium">Vegetarian</a>
-            <a [routerLink]="['/recipes']" [queryParams]="{category: 'Dessert'}" class="block px-4 py-3 hover:bg-purple-200 hover:text-indigo-600 font-medium">Dessert</a>
-            <a [routerLink]="['/recipes']" [queryParams]="{category: 'Vegan'}" class="block px-4 py-3 hover:bg-purple-200 hover:text-indigo-600 font-medium">Vegan</a>
+            <a routerLink="'/recipes'" [queryParams]="{category: 'Vegetarian'}" class="block px-4 py-3 hover:bg-purple-200 hover:text-indigo-600 font-medium">Vegetarian</a>
+            <a routerLink="'/recipes'" [queryParams]="{category: 'Dessert'}" class="block px-4 py-3 hover:bg-purple-200 hover:text-indigo-600 font-medium">Dessert</a>
+            <a routerLink="'/recipes'" [queryParams]="{category: 'Vegan'}" class="block px-4 py-3 hover:bg-purple-200 hover:text-indigo-600 font-medium">Vegan</a>
           </div>
         </div>
         <div class="relative">

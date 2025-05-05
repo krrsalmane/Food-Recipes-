@@ -41,6 +41,7 @@ export class RecipeService {
     const categories = ['Beef', 'Chicken', 'Dessert', 'Pasta', 'Seafood', 'Vegetarian'];
     const allRequests = categories.map(category =>
       this.getRecipesByCategory(category)
+    
     );
     return new Observable(observer => {
       let allMeals: any[] = [];
@@ -53,6 +54,7 @@ export class RecipeService {
           if (completed === allRequests.length) {
             observer.next(allMeals);
             observer.complete();
+            console.log('All recipes loaded:', allMeals);
           }
         });
       });
